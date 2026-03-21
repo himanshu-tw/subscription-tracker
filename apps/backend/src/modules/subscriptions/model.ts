@@ -35,8 +35,10 @@ export namespace SubscriptionModel {
     ),
   });
 
-  export const updateSubscriptionSchema = t.Object({});
-
+  export const updateSubscriptionSchema = t.Object({
+    id: t.String(),
+    userId: t.String(),
+  });
   export const deleteSubscriptionSchema = t.Object({
     id: t.String(),
     userId: t.String(),
