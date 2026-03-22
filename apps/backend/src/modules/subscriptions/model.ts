@@ -39,6 +39,7 @@ export namespace SubscriptionModel {
     id: t.String(),
     userId: t.String(),
   });
+
   export const deleteSubscriptionSchema = t.Object({
     id: t.String(),
     userId: t.String(),

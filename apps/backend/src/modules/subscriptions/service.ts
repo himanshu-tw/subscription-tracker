@@ -1,5 +1,4 @@
 import { prisma } from "db";
-import { sucrose } from "elysia/dist/sucrose";
 
 export abstract class SubscriptionService {
   static async createNewSubscriptions(
