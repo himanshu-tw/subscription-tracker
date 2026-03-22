@@ -6,7 +6,7 @@ export namespace SubscriptionModel {
     name: t.String(),
     price: t.Number(),
     billingCycle: t.Union([t.Literal("monthly"), t.Literal("yearly")]),
-    renewalDate: t.Date(),
+    renewalDate: t.String({ format: 'date-time' }),
     isActive: t.Boolean(),
   });
 
@@ -77,6 +77,6 @@ export namespace SubscriptionModel {
   export type updateSubscriptionFailResponseSchema = typeof updateSubscriptionFailResponseSchema.static;
 
   export type deleteSubscriptionSchema = typeof deleteSubscriptionSchema.static;
-  export type deleteSubscriptionResponseSchema = typeof deleteSubscriptionSchema.static;
+  export type deleteSubscriptionResponseSchema = typeof deleteSubscriptionResponseSchema.static;
   export type deleteSubscriptionFailResponseSchema = typeof deleteSubscriptionFailResponseSchema.static;
 }

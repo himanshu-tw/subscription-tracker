@@ -55,6 +55,8 @@ export const app = new Elysia({ prefix: "/auth" })
           value: token,
           httpOnly: true,
           maxAge: 7 * 86400,
+          secure: true,
+          sameSite: "strict"
         });
 
         return {
