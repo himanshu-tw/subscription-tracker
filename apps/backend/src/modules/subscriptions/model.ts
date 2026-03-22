@@ -38,7 +38,18 @@ export namespace SubscriptionModel {
   export const updateSubscriptionSchema = t.Object({
     id: t.String(),
     userId: t.String(),
+    updates: t.Any()
   });
+
+  export const updateSubscriptionResponseSchema = t.Object({
+    success: t.Boolean(),
+    data: t.Any()
+  })
+
+  export const updateSubscriptionFailResponseSchema = t.Object({
+    success: t.Boolean(),
+    message: t.Literal("Subscription not found")
+  })
 
   export const deleteSubscriptionSchema = t.Object({
     id: t.String(),
@@ -52,4 +63,20 @@ export namespace SubscriptionModel {
   export const deleteSubscriptionFailResponseSchema = t.Object({
     message: t.Literal("Subscription not found."),
   });
+
+  export type createSubscriptionSchema = typeof createSubscriptionSchema.static;
+  export type createSubscriptionResponseSchema = typeof createSubscriptionResponseSchema.static;
+  export type createSubscriptionFailResponseSchema = typeof createSubscriptionFailResponseSchema.static;
+
+  export type getAllSubscriptionSchema = typeof getAllSubscriptionSchema.static;
+  export type getAllSubscriptionResponseSchema = typeof getAllSubscriptionResponseSchema.static;
+  export type getAllSubscriptionFailResponseSchema = typeof getAllSubscriptionFailResponseSchema.static;
+
+  export type updateSubscriptionSchema = typeof updateSubscriptionSchema.static;
+  export type updateSubscriptionResponseSchema = typeof updateSubscriptionResponseSchema.static;
+  export type updateSubscriptionFailResponseSchema = typeof updateSubscriptionFailResponseSchema.static;
+
+  export type deleteSubscriptionSchema = typeof deleteSubscriptionSchema.static;
+  export type deleteSubscriptionResponseSchema = typeof deleteSubscriptionSchema.static;
+  export type deleteSubscriptionFailResponseSchema = typeof deleteSubscriptionFailResponseSchema.static;
 }
