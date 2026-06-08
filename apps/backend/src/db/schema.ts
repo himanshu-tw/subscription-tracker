@@ -1,4 +1,4 @@
-import { integer, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { boolean, integer, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 export const billingCycleEnum = pgEnum('billing_cycle', ['MONTHLY', 'YEARLY'])
 
@@ -7,6 +7,9 @@ export const users = pgTable("users", {
     name: text("name").notNull(),
     email: text("email").notNull().unique(),
     password: text("password"),
+    isVerified: boolean("is_verified").notNull().default(false),
+    verificationToken: text("verification_token"),
+    verificationTokenExpiry: timestamp("verification_token_expiry"),
     createdAt: timestamp("created_at").defaultNow().notNull()
 })
 
