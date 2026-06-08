@@ -3,7 +3,6 @@ import { users } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { type Request, type Response } from 'express';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import { type AuthRequest } from '../middleware/middleware';
 import { generateToken } from '../utils/generateToken';
 
