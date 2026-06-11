@@ -100,9 +100,10 @@ export const login = async (req: AuthRequest, res: Response) => {
     const token = generateToken(user.id);
 
     // set the auth cookie as the jwt token generated
+    setAuthCookie(res, token)
 
     // success message
-    res.json({ message: "logged in" });
+    res.json({ message: "successfully logged in" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
