@@ -5,6 +5,7 @@ import { type Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { type AuthRequest } from '../middleware/middleware';
 import { generateToken } from '../utils/generateToken';
+import { setAuthCookie } from '../utils/authCookie';
 
 
 export const verify = async (req: AuthRequest, res: Response) => {
@@ -35,6 +36,7 @@ export const verify = async (req: AuthRequest, res: Response) => {
     const jwtToken = generateToken(user.id)
 
     // set cookie
+    setAuthCookie(res, jwtToken)
 
     // return success message
     return res.status(200).json({ message: "success" })
