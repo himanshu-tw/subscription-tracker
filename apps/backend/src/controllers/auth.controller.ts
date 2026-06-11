@@ -1,7 +1,7 @@
 import { db } from '../db';
 import { users } from '../db/schema';
 import { eq } from 'drizzle-orm';
-import { type Request, type Response } from 'express';
+import { type Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { type AuthRequest } from '../middleware/middleware';
 import { generateToken } from '../utils/generateToken';
