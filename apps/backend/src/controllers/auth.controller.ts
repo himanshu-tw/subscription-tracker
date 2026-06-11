@@ -5,7 +5,7 @@ import { type Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { type AuthRequest } from '../middleware/middleware';
 import { generateToken } from '../utils/generateToken';
-import { setAuthCookie } from '../utils/authCookie';
+import { clearAuthCookie, setAuthCookie } from '../utils/authCookie';
 
 
 export const verify = async (req: AuthRequest, res: Response) => {
@@ -120,6 +120,7 @@ export const me = async (req: AuthRequest, res: Response) => {
 
 export const logout = async (req: AuthRequest, res: Response) => {
   // clear the auth cookie
+  clearAuthCookie(res)
 
   res.json({ message: "Logged out" })
 }
